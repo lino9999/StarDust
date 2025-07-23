@@ -1,0 +1,7 @@
+spawn-interval: 5
+particles-per-spawn: 3
+spawn-radius: 50.0
+spawn-height: 30.0
+fall-speed: 0.1
+particle-lifetime: 200
+particle-type: END_ROD
