@@ -2,3 +2,17 @@ name: StarDust
 version: '1.0'
 main: com.Lino.starDust.StarDust
 api-version: '1.21'
+author: Lino
+description: Creates beautiful biome-specific particle effects during nighttime
+commands:
+  stardust:
+    description: Main StarDust command
+    usage: /<command> [status|toggle|reload]
+    aliases: [sd]
+permissions:
+  stardust.use:
+    description: Allows using StarDust
+    default: true
+  stardust.reload:
+    description: Allows reloading StarDust config
+    default: op
