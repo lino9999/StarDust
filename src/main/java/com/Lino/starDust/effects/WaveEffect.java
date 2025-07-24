@@ -1,10 +1,9 @@
 package com.Lino.starDust.effects;
 
 import com.Lino.starDust.StarDust;
-
 import com.Lino.starDust.config.BiomeConfig;
+import com.Lino.starDust.utils.ParticleUtils;
 import org.bukkit.Location;
-import org.bukkit.Particle;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 
@@ -47,13 +46,7 @@ public class WaveEffect implements ParticleEffect {
 
                     Location currentLoc = new Location(player.getWorld(), x + waveOffset, y, z);
 
-                    player.getWorld().spawnParticle(
-                            Particle.valueOf(config.getParticleType()),
-                            currentLoc,
-                            1,
-                            0, 0, 0,
-                            0
-                    );
+                    ParticleUtils.spawnParticle(player.getWorld(), currentLoc, config.getParticleType());
 
                     ticks++;
                 }

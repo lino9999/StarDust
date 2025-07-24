@@ -2,8 +2,8 @@ package com.Lino.starDust.effects;
 
 import com.Lino.starDust.StarDust;
 import com.Lino.starDust.config.BiomeConfig;
+import com.Lino.starDust.utils.ParticleUtils;
 import org.bukkit.Location;
-import org.bukkit.Particle;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 
@@ -23,7 +23,7 @@ public class SpiralEffect implements ParticleEffect {
         Location playerLoc = player.getLocation();
 
         for (int i = 0; i < config.getParticleCount(); i++) {
-            double startRadius = random.nextDouble() * config.getSpawnRadius();
+            double startRadius = (config.getSpawnRadius() * 0.3) + (random.nextDouble() * config.getSpawnRadius() * 0.7);
             double startY = playerLoc.getY() + random.nextDouble() * config.getSpawnHeight();
             double startAngle = random.nextDouble() * Math.PI * 2;
 
@@ -49,13 +49,7 @@ public class SpiralEffect implements ParticleEffect {
 
                     Location currentLoc = new Location(player.getWorld(), x, y, z);
 
-                    player.getWorld().spawnParticle(
-                            Particle.valueOf(config.getParticleType()),
-                            currentLoc,
-                            1,
-                            0, 0, 0,
-                            0
-                    );
+                    ParticleUtils.spawnParticle(player.getWorld(), currentLoc, config.getParticleType());
 
                     ticks++;
                 }

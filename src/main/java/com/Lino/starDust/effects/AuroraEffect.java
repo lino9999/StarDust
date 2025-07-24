@@ -2,8 +2,8 @@ package com.Lino.starDust.effects;
 
 import com.Lino.starDust.StarDust;
 import com.Lino.starDust.config.BiomeConfig;
+import com.Lino.starDust.utils.ParticleUtils;
 import org.bukkit.Location;
-import org.bukkit.Particle;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 
@@ -45,13 +45,7 @@ public class AuroraEffect implements ParticleEffect {
 
                         Location particleLoc = new Location(player.getWorld(), x, y, z);
 
-                        player.getWorld().spawnParticle(
-                                Particle.valueOf(config.getParticleType()),
-                                particleLoc,
-                                1,
-                                0.2, 0.2, 0.2,
-                                0
-                        );
+                        ParticleUtils.spawnParticleWithOffset(player.getWorld(), particleLoc, config.getParticleType(), 0.2, 0.2, 0.2);
                     }
 
                     phase += 0.1;

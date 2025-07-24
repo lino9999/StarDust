@@ -2,8 +2,8 @@ package com.Lino.starDust.effects;
 
 import com.Lino.starDust.StarDust;
 import com.Lino.starDust.config.BiomeConfig;
+import com.Lino.starDust.utils.ParticleUtils;
 import org.bukkit.Location;
-import org.bukkit.Particle;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
@@ -58,13 +58,7 @@ public class FireflyEffect implements ParticleEffect {
 
                     glowTicks++;
                     if (glowTicks > 20 && glowTicks < 40) {
-                        player.getWorld().spawnParticle(
-                                Particle.valueOf(config.getParticleType()),
-                                currentLoc,
-                                1,
-                                0, 0, 0,
-                                0
-                        );
+                        ParticleUtils.spawnParticle(player.getWorld(), currentLoc, config.getParticleType());
                     }
                     if (glowTicks >= 60) glowTicks = 0;
 

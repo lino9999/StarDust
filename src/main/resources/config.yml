@@ -73,9 +73,9 @@ biomes:
     spawn-height: 50.0
 
   DESERT:
-    particle-type: DUST
+    particle-type: FLAME
     fall-speed: 0.15
-    particle-count: 2
+    particle-count: 3
     effect-type: METEOR
     spawn-radius: 100.0
     spawn-height: 60.0
