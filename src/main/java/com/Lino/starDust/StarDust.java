@@ -67,23 +67,11 @@ public class StarDust extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        getLogger().info("Shutting down StarDust...");
-
         if (effectManager != null) {
             effectManager.stopEffects();
-            getLogger().info("[✓] Effects stopped");
-        }
-
-        if (playerManager != null) {
-            int activePlayers = playerManager.getActivePlayerCount();
-            if (activePlayers > 0) {
-                getLogger().info("[✓] Saved data for " + activePlayers + " active players");
-            }
         }
 
         Bukkit.getScheduler().cancelTasks(this);
-        getLogger().info("[✓] All tasks cancelled");
-
         getLogger().info("StarDust has been disabled!");
     }
 
@@ -110,7 +98,7 @@ public class StarDust extends JavaPlugin {
             public void run() {
                 try {
                     HttpURLConnection connection = (HttpURLConnection) new java.net.URI(
-                            "https://api.spigotmc.org/legacy/update.php?resource=127279"
+                            "https://api.spigotmc.org/legacy/update.php?resource=YOUR_RESOURCE_ID"
                     ).toURL().openConnection();
                     connection.setRequestMethod("GET");
 

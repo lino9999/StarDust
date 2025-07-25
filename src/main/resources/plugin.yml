@@ -1,5 +1,5 @@
 name: StarDust
-version: '1.1-BETA'
+version: '1.2-BETA'
 main: com.Lino.starDust.StarDust
 api-version: '1.21'
 author: Lino

@@ -59,7 +59,7 @@ public class PlayerManager {
             sendDeactivationMessage(player);
             promoteNextInQueue();
         } else if (wasQueued) {
-            player.sendMessage("§9StarDust >> §fYou have been removed from the queue");
+            player.sendMessage("§9StarDust >> §cRemoved from queue");
         }
 
         joinTimes.remove(uuid);
@@ -132,7 +132,7 @@ public class PlayerManager {
         for (UUID uuid : playerQueue) {
             Player player = plugin.getServer().getPlayer(uuid);
             if (player != null && player.isOnline()) {
-                player.sendMessage("§9StarDust >> §fYour queue position updated: §b#" + position);
+                player.sendMessage("§9StarDust >> §eQueue position: §b#" + position);
                 player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_CHIME, 0.5f, 1.0f);
             }
             position++;
@@ -140,70 +140,32 @@ public class PlayerManager {
     }
 
     private void sendActivationMessage(Player player) {
-        player.sendMessage("");
-        player.sendMessage("§9§l* §b§lSTARDUST ACTIVATED §9§l*");
-        player.sendMessage("§7Magical particles now surround you!");
-        player.sendMessage("§7Type §f/stardust §7for more options");
-        player.sendMessage("");
+        player.sendMessage("§9StarDust >> §aParticles activated!");
     }
 
     private void sendDeactivationMessage(Player player) {
-        PlayerStats stats = playerStats.get(player.getUniqueId());
-        if (stats != null) {
-            player.sendMessage("");
-            player.sendMessage("§9§l* §c§lSTARDUST DEACTIVATED §9§l*");
-            player.sendMessage("§7Session time: §f" + formatTime(stats.getLastSessionTime()));
-            player.sendMessage("");
-        }
+        player.sendMessage("§9StarDust >> §cParticles deactivated!");
     }
 
     private void sendQueueMessage(Player player) {
         int position = getQueuePosition(player);
-        player.sendMessage("");
-        player.sendMessage("§9§l* §e§lQUEUED FOR STARDUST §9§l*");
-        player.sendMessage("§7Queue position: §e#" + position);
-        player.sendMessage("§7Estimated wait: §e" + estimateWaitTime(position));
-        player.sendMessage("");
+        player.sendMessage("§9StarDust >> §eQueued at position #" + position);
     }
 
     private void sendPromotionMessage(Player player) {
-        player.sendMessage("");
-        player.sendMessage("§9§l* §a§lPROMOTED FROM QUEUE §9§l*");
-        player.sendMessage("§7You are now experiencing StarDust!");
-        player.sendMessage("");
+        player.sendMessage("§9StarDust >> §aYou are now experiencing StarDust!");
         player.playSound(player.getLocation(), Sound.UI_TOAST_CHALLENGE_COMPLETE, 1.0f, 1.0f);
     }
 
     private void playActivationEffect(Player player) {
-        new BukkitRunnable() {
-            private int ticks = 0;
-
-            @Override
-            public void run() {
-                if (ticks >= 10 || !player.isOnline()) {
-                    this.cancel();
-                    return;
-                }
-
-                player.getWorld().spawnParticle(
-                        org.bukkit.Particle.END_ROD,
-                        player.getLocation().add(0, 2, 0),
-                        10,
-                        0.5, 0.5, 0.5,
-                        0.1
-                );
-
-                player.getWorld().spawnParticle(
-                        org.bukkit.Particle.FIREWORK,
-                        player.getLocation().add(0, 1, 0),
-                        5,
-                        0.3, 0.3, 0.3,
-                        0.05
-                );
-
-                ticks++;
-            }
-        }.runTaskTimer(plugin, 0L, 2L);
+        // Simple activation effect without being too intrusive
+        player.getWorld().spawnParticle(
+                org.bukkit.Particle.END_ROD,
+                player.getLocation().add(0, 2, 0),
+                10,
+                0.5, 0.5, 0.5,
+                0.1
+        );
     }
 
     private String estimateWaitTime(int position) {
