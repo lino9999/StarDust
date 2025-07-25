@@ -34,31 +34,31 @@ public class StarDust extends JavaPlugin {
 
         configManager = new ConfigManager(this);
         configManager.loadConfig();
-        getLogger().info("✓ Configuration loaded");
+        getLogger().info("[✓] Configuration loaded");
 
         playerManager = new PlayerManager(this);
-        getLogger().info("✓ Player manager initialized");
+        getLogger().info("[✓] Player manager initialized");
 
         effectManager = new EffectManager(this);
-        getLogger().info("✓ Effect manager initialized");
+        getLogger().info("[✓] Effect manager initialized");
 
         getServer().getPluginManager().registerEvents(new PlayerJoinListener(this), this);
-        getLogger().info("✓ Event listeners registered");
+        getLogger().info("[✓] Event listeners registered");
 
         StarDustCommand commandExecutor = new StarDustCommand(this);
         getCommand("stardust").setExecutor(commandExecutor);
         getCommand("stardust").setTabCompleter(commandExecutor);
-        getLogger().info("✓ Commands registered");
+        getLogger().info("[✓] Commands registered");
 
         effectManager.startEffects();
-        getLogger().info("✓ Particle effects started");
+        getLogger().info("[✓] Particle effects started");
 
         checkForUpdates();
         startMetrics();
         scheduleAutoSave();
 
         long loadTime = System.currentTimeMillis() - startTime;
-        getLogger().info("§aStarDust has been enabled! (took " + loadTime + "ms)");
+        getLogger().info("StarDust has been enabled! (took " + loadTime + "ms)");
 
         if (Bukkit.getOnlinePlayers().size() > 0) {
             getLogger().info("Found " + Bukkit.getOnlinePlayers().size() + " online players");
@@ -71,32 +71,32 @@ public class StarDust extends JavaPlugin {
 
         if (effectManager != null) {
             effectManager.stopEffects();
-            getLogger().info("✓ Effects stopped");
+            getLogger().info("[✓] Effects stopped");
         }
 
         if (playerManager != null) {
             int activePlayers = playerManager.getActivePlayerCount();
             if (activePlayers > 0) {
-                getLogger().info("✓ Saved data for " + activePlayers + " active players");
+                getLogger().info("[✓] Saved data for " + activePlayers + " active players");
             }
         }
 
         Bukkit.getScheduler().cancelTasks(this);
-        getLogger().info("✓ All tasks cancelled");
+        getLogger().info("[✓] All tasks cancelled");
 
-        getLogger().info("§cStarDust has been disabled!");
+        getLogger().info("StarDust has been disabled!");
     }
 
     private void printBanner() {
         getLogger().info("");
-        getLogger().info("§9  ____  _             ____            _   ");
-        getLogger().info("§9 / ___|| |_ __ _ _ __|  _ \\ _   _ ___| |_ ");
-        getLogger().info("§b \\___ \\| __/ _` | '__| | | | | | / __| __|");
-        getLogger().info("§b  ___) | || (_| | |  | |_| | |_| \\__ \\ |_ ");
-        getLogger().info("§3 |____/ \\__\\__,_|_|  |____/ \\__,_|___/\\__|");
+        getLogger().info("  ____  _             ____            _   ");
+        getLogger().info(" / ___|| |_ __ _ _ __|  _ \\ _   _ ___| |_ ");
+        getLogger().info(" \\___ \\| __/ _` | '__| | | | | | / __| __|");
+        getLogger().info("  ___) | || (_| | |  | |_| | |_| \\__ \\ |_ ");
+        getLogger().info(" |____/ \\__\\__,_|_|  |____/ \\__,_|___/\\__|");
         getLogger().info("");
-        getLogger().info("§7Version: §f" + getDescription().getVersion());
-        getLogger().info("§7Author: §f" + getDescription().getAuthors().get(0));
+        getLogger().info("Version: " + getDescription().getVersion());
+        getLogger().info("Author: " + getDescription().getAuthors().get(0));
         getLogger().info("");
     }
 
@@ -123,12 +123,12 @@ public class StarDust extends JavaPlugin {
                         latestVersion = version;
 
                         Bukkit.getScheduler().runTask(StarDust.this, () -> {
-                            getLogger().warning("§e═════════════════════════════════════");
-                            getLogger().warning("§e  A new version of StarDust is available!");
-                            getLogger().warning("§e  Current: " + getDescription().getVersion());
-                            getLogger().warning("§e  Latest: " + version);
-                            getLogger().warning("§e  Download at: [URL]");
-                            getLogger().warning("§e═════════════════════════════════════");
+                            getLogger().warning("=====================================");
+                            getLogger().warning("  A new version of StarDust is available!");
+                            getLogger().warning("  Current: " + getDescription().getVersion());
+                            getLogger().warning("  Latest: " + version);
+                            getLogger().warning("  Download at: [URL]");
+                            getLogger().warning("=====================================");
                         });
                     } else {
                         getLogger().info("You are running the latest version!");

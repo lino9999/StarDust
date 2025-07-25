@@ -90,7 +90,7 @@ public class PlayerJoinListener implements Listener {
 
                 if (!fromEnabled && toEnabled) {
                     player.sendMessage("");
-                    player.sendMessage("§9§l⋆ §b§lSTARDUST AVAILABLE §9§l⋆");
+                    player.sendMessage("§9§l* §b§lSTARDUST AVAILABLE §9§l*");
                     player.sendMessage("§7StarDust effects are available in this world!");
                     player.sendMessage("§7Use §f/stardust toggle §7to enable");
                     player.sendMessage("");
@@ -98,7 +98,7 @@ public class PlayerJoinListener implements Listener {
                     playWorldChangeEffect(player);
                 } else if (fromEnabled && !toEnabled) {
                     player.sendMessage("");
-                    player.sendMessage("§9§l⋆ §c§lSTARDUST UNAVAILABLE §9§l⋆");
+                    player.sendMessage("§9§l* §c§lSTARDUST UNAVAILABLE §9§l*");
                     player.sendMessage("§7StarDust effects are not available in this world");
                     player.sendMessage("");
                 }
@@ -116,7 +116,7 @@ public class PlayerJoinListener implements Listener {
                 public void run() {
                     if (!player.isOnline()) return;
 
-                    player.sendMessage("§9StarDust §7» §fYour particles have been restored!");
+                    player.sendMessage("§9StarDust >> §fYour particles have been restored!");
                     playRespawnEffect(player);
                 }
             }.runTaskLater(plugin, 10L);
@@ -209,7 +209,7 @@ public class PlayerJoinListener implements Listener {
 
     private void sendFirstTimeMessage(Player player) {
         player.sendMessage("");
-        player.sendMessage("§9§l⋆ §b§lWELCOME TO STARDUST §9§l⋆");
+        player.sendMessage("§9§l* §b§lWELCOME TO STARDUST §9§l*");
         player.sendMessage("");
         player.sendMessage("§7Experience magical particle effects");
         player.sendMessage("§7that light up the night sky!");
@@ -223,14 +223,14 @@ public class PlayerJoinListener implements Listener {
 
     private void sendWelcomeBackMessage(Player player) {
         player.sendMessage("");
-        player.sendMessage("§9§l⋆ §a§lWELCOME BACK §9§l⋆");
+        player.sendMessage("§9§l* §a§lWELCOME BACK §9§l*");
         player.sendMessage("§7StarDust particles activated!");
         player.sendMessage("");
     }
 
     private void sendQueueNotification(Player player, int position) {
         player.sendMessage("");
-        player.sendMessage("§9§l⋆ §e§lQUEUED §9§l⋆");
+        player.sendMessage("§9§l* §e§lQUEUED §9§l*");
         player.sendMessage("§7Position: §e#" + position);
         player.sendMessage("");
     }
@@ -243,7 +243,7 @@ public class PlayerJoinListener implements Listener {
 
                 if (isNightTime(player.getWorld())) {
                     player.sendMessage("");
-                    player.sendMessage("§9§l⋆ §b§lSTARDUST NIGHT §9§l⋆");
+                    player.sendMessage("§9§l* §b§lSTARDUST NIGHT §9§l*");
                     player.sendMessage("§7The night sky awaits your magic!");
                     player.sendMessage("§7Use §f/stardust toggle §7to join");
                     player.sendMessage("");

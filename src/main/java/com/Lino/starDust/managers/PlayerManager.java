@@ -59,7 +59,7 @@ public class PlayerManager {
             sendDeactivationMessage(player);
             promoteNextInQueue();
         } else if (wasQueued) {
-            player.sendMessage("§9StarDust §7» §fYou have been removed from the queue");
+            player.sendMessage("§9StarDust >> §fYou have been removed from the queue");
         }
 
         joinTimes.remove(uuid);
@@ -132,7 +132,7 @@ public class PlayerManager {
         for (UUID uuid : playerQueue) {
             Player player = plugin.getServer().getPlayer(uuid);
             if (player != null && player.isOnline()) {
-                player.sendMessage("§9StarDust §7» §fYour queue position updated: §b#" + position);
+                player.sendMessage("§9StarDust >> §fYour queue position updated: §b#" + position);
                 player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_CHIME, 0.5f, 1.0f);
             }
             position++;
@@ -141,7 +141,7 @@ public class PlayerManager {
 
     private void sendActivationMessage(Player player) {
         player.sendMessage("");
-        player.sendMessage("§9§l⋆ §b§lSTARDUST ACTIVATED §9§l⋆");
+        player.sendMessage("§9§l* §b§lSTARDUST ACTIVATED §9§l*");
         player.sendMessage("§7Magical particles now surround you!");
         player.sendMessage("§7Type §f/stardust §7for more options");
         player.sendMessage("");
@@ -151,7 +151,7 @@ public class PlayerManager {
         PlayerStats stats = playerStats.get(player.getUniqueId());
         if (stats != null) {
             player.sendMessage("");
-            player.sendMessage("§9§l⋆ §c§lSTARDUST DEACTIVATED §9§l⋆");
+            player.sendMessage("§9§l* §c§lSTARDUST DEACTIVATED §9§l*");
             player.sendMessage("§7Session time: §f" + formatTime(stats.getLastSessionTime()));
             player.sendMessage("");
         }
@@ -160,7 +160,7 @@ public class PlayerManager {
     private void sendQueueMessage(Player player) {
         int position = getQueuePosition(player);
         player.sendMessage("");
-        player.sendMessage("§9§l⋆ §e§lQUEUED FOR STARDUST §9§l⋆");
+        player.sendMessage("§9§l* §e§lQUEUED FOR STARDUST §9§l*");
         player.sendMessage("§7Queue position: §e#" + position);
         player.sendMessage("§7Estimated wait: §e" + estimateWaitTime(position));
         player.sendMessage("");
@@ -168,7 +168,7 @@ public class PlayerManager {
 
     private void sendPromotionMessage(Player player) {
         player.sendMessage("");
-        player.sendMessage("§9§l⋆ §a§lPROMOTED FROM QUEUE §9§l⋆");
+        player.sendMessage("§9§l* §a§lPROMOTED FROM QUEUE §9§l*");
         player.sendMessage("§7You are now experiencing StarDust!");
         player.sendMessage("");
         player.playSound(player.getLocation(), Sound.UI_TOAST_CHALLENGE_COMPLETE, 1.0f, 1.0f);

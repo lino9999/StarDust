@@ -95,7 +95,7 @@ public class StarDustCommand implements CommandExecutor, TabCompleter {
         long endTime = System.currentTimeMillis();
 
         sender.sendMessage("");
-        sender.sendMessage("§9§l⋆ §a§lCONFIG RELOADED §9§l⋆");
+        sender.sendMessage("§9§l* §a§lCONFIG RELOADED §9§l*");
         sender.sendMessage("§7Reload time: §f" + (endTime - startTime) + "ms");
         sender.sendMessage("");
 
@@ -116,7 +116,7 @@ public class StarDustCommand implements CommandExecutor, TabCompleter {
         PlayerManager.PlayerStats stats = plugin.getPlayerManager().getPlayerStats(player);
 
         sender.sendMessage("");
-        sender.sendMessage("§9§l⋆ §b§lYOUR STARDUST STATUS §9§l⋆");
+        sender.sendMessage("§9§l* §b§lYOUR STARDUST STATUS §9§l*");
         sender.sendMessage("");
 
         if (isActive) {
@@ -184,7 +184,7 @@ public class StarDustCommand implements CommandExecutor, TabCompleter {
         PlayerManager.PlayerStats stats = plugin.getPlayerManager().getPlayerStats(target);
 
         sender.sendMessage("");
-        sender.sendMessage("§9§l⋆ §b§lSTARDUST STATS §9§l⋆");
+        sender.sendMessage("§9§l* §b§lSTARDUST STATS §9§l*");
         sender.sendMessage("§7Player: §f" + target.getName());
         sender.sendMessage("");
 
@@ -204,7 +204,7 @@ public class StarDustCommand implements CommandExecutor, TabCompleter {
 
     private void handleInfo(CommandSender sender) {
         sender.sendMessage("");
-        sender.sendMessage("§9§l⋆ §b§lSTARDUST INFO §9§l⋆");
+        sender.sendMessage("§9§l* §b§lSTARDUST INFO §9§l*");
         sender.sendMessage("");
         sender.sendMessage("§7Version: §f" + plugin.getDescription().getVersion());
         sender.sendMessage("§7Author: §f" + plugin.getDescription().getAuthors().get(0));
@@ -228,7 +228,7 @@ public class StarDustCommand implements CommandExecutor, TabCompleter {
         BiomeConfig config = plugin.getConfigManager().getBiomeConfig(biomeName);
 
         sender.sendMessage("");
-        sender.sendMessage("§9§l⋆ §b§lBIOME CONFIGURATION §9§l⋆");
+        sender.sendMessage("§9§l* §b§lBIOME CONFIGURATION §9§l*");
         sender.sendMessage("");
         sender.sendMessage("§7Current biome: §f" + biomeName);
         sender.sendMessage("§7Effect type: §f" + config.getEffectType());
@@ -247,7 +247,7 @@ public class StarDustCommand implements CommandExecutor, TabCompleter {
         }
 
         sender.sendMessage("");
-        sender.sendMessage("§9§l⋆ §b§lACTIVE PLAYERS §9§l⋆");
+        sender.sendMessage("§9§l* §b§lACTIVE PLAYERS §9§l*");
         sender.sendMessage("");
 
         List<Player> activePlayers = new ArrayList<>(plugin.getPlayerManager().getActiveParticlePlayers());
@@ -319,7 +319,7 @@ public class StarDustCommand implements CommandExecutor, TabCompleter {
         page = Math.max(1, Math.min(page, totalPages));
 
         sender.sendMessage("");
-        sender.sendMessage("§9§l⋆ §b§lSTARDUST HELP §7(Page " + page + "/" + totalPages + ") §9§l⋆");
+        sender.sendMessage("§9§l* §b§lSTARDUST HELP §7(Page " + page + "/" + totalPages + ") §9§l*");
         sender.sendMessage("");
 
         if (page == 1) {
@@ -351,7 +351,7 @@ public class StarDustCommand implements CommandExecutor, TabCompleter {
 
     private void sendAdminHelp(CommandSender sender) {
         sender.sendMessage("");
-        sender.sendMessage("§9§l⋆ §c§lADMIN COMMANDS §9§l⋆");
+        sender.sendMessage("§9§l* §c§lADMIN COMMANDS §9§l*");
         sender.sendMessage("");
         sender.sendMessage("§c/stardust admin add <player> §7- Force add player");
         sender.sendMessage("§c/stardust admin remove <player> §7- Force remove player");

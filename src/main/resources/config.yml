@@ -1,9 +1,11 @@
 spawn-interval: 3
 particle-lifetime: 300
-max-players: 3
+max-players: 20
 
 enabled-worlds:
   - world
+  - world_nether
+  - world_the_end
 
 default:
   particle-type: END_ROD
