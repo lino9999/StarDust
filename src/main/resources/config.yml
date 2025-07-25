@@ -1,78 +1,84 @@
-spawn-interval: 5
-particle-lifetime: 200
-max-players: 10
+spawn-interval: 3
+particle-lifetime: 300
+max-players: 3
 
 enabled-worlds:
   - world
-  - world_nether
-  - world_the_end
 
 default:
   particle-type: END_ROD
-  fall-speed: 0.1
-  particle-count: 3
+  fall-speed: 0.08
+  particle-count: 5
   effect-type: FALLING
-  spawn-radius: 50.0
-  spawn-height: 30.0
+  spawn-radius: 60.0
+  spawn-height: 35.0
 
 biomes:
   PLAINS:
     particle-type: END_ROD
     fall-speed: 0.1
-    particle-count: 3
-    effect-type: FALLING
-    spawn-radius: 50.0
-    spawn-height: 30.0
-
-  FOREST:
-    particle-type: VILLAGER_HAPPY
-    fall-speed: 0.05
     particle-count: 5
-    effect-type: FIREFLY
-    spawn-radius: 30.0
-    spawn-height: 15.0
-
-  DARK_FOREST:
-    particle-type: SOUL_FIRE_FLAME
-    fall-speed: 0.08
-    particle-count: 4
-    effect-type: FLOATING
-    spawn-radius: 40.0
-    spawn-height: 20.0
-
-  TAIGA:
-    particle-type: SNOWFLAKE
-    fall-speed: 0.03
-    particle-count: 8
-    effect-type: SNOW
+    effect-type: FALLING
     spawn-radius: 60.0
     spawn-height: 35.0
 
-  SNOWY_TAIGA:
-    particle-type: SNOWFLAKE
-    fall-speed: 0.02
-    particle-count: 12
-    effect-type: SNOW
-    spawn-radius: 70.0
-    spawn-height: 40.0
+  FOREST:
+    particle-type: HAPPY_VILLAGER
+    fall-speed: 0.04
+    particle-count: 8
+    effect-type: FIREFLY
+    spawn-radius: 40.0
+    spawn-height: 20.0
 
-  SNOWY_PLAINS:
+  DARK_FOREST:
+    particle-type: SOUL_FIRE_FLAME
+    fall-speed: 0.06
+    particle-count: 6
+    effect-type: FLOATING
+    spawn-radius: 45.0
+    spawn-height: 25.0
+
+  TAIGA:
     particle-type: SNOWFLAKE
     fall-speed: 0.025
     particle-count: 10
     effect-type: SNOW
-    spawn-radius: 65.0
-    spawn-height: 35.0
+    spawn-radius: 70.0
+    spawn-height: 40.0
+
+  SNOWY_TAIGA:
+    particle-type: SNOWFLAKE
+    fall-speed: 0.02
+    particle-count: 15
+    effect-type: SNOW
+    spawn-radius: 80.0
+    spawn-height: 45.0
+
+  SNOWY_PLAINS:
+    particle-type: SNOWFLAKE
+    fall-speed: 0.022
+    particle-count: 12
+    effect-type: SNOW
+    spawn-radius: 75.0
+    spawn-height: 40.0
 
   ICE_SPIKES:
     particle-type: FIREWORK
-    fall-speed: 0.05
-    particle-count: 3
+    fall-speed: 0.04
+    particle-count: 4
     effect-type: AURORA
-    spawn-radius: 80.0
-    spawn-height: 50.0
+    spawn-radius: 100.0
+    spawn-height: 60.0
 
   DESERT:
+    particle-type: FLAME
+    fall-speed: 0.18
+    particle-count: 4
+    effect-type: METEOR
+    spawn-radius: 120.0
+    spawn-height: 70.0
+
+  BADLANDS:
     particle-type: FLAME
     fall-speed: 0.15
     particle-count: 3
@@ -80,98 +86,170 @@ biomes:
     spawn-radius: 100.0
     spawn-height: 60.0
 
-  BADLANDS:
-    particle-type: FLAME
-    fall-speed: 0.12
-    particle-count: 2
-    effect-type: METEOR
-    spawn-radius: 90.0
-    spawn-height: 55.0
-
   SAVANNA:
     particle-type: SMALL_FLAME
-    fall-speed: 0.08
-    particle-count: 4
+    fall-speed: 0.07
+    particle-count: 6
     effect-type: FIREFLY
-    spawn-radius: 45.0
-    spawn-height: 25.0
+    spawn-radius: 50.0
+    spawn-height: 30.0
 
   SWAMP:
     particle-type: GLOW
-    fall-speed: 0.04
-    particle-count: 6
+    fall-speed: 0.03
+    particle-count: 10
     effect-type: FIREFLY
-    spawn-radius: 35.0
-    spawn-height: 15.0
-
-  JUNGLE:
-    particle-type: VILLAGER_HAPPY
-    fall-speed: 0.06
-    particle-count: 7
-    effect-type: SPIRAL
-    spawn-radius: 40.0
-    spawn-height: 30.0
-
-  BEACH:
-    particle-type: WATER_DROP
-    fall-speed: 0.07
-    particle-count: 4
-    effect-type: WAVE
-    spawn-radius: 50.0
+    spawn-radius: 45.0
     spawn-height: 20.0
 
-  OCEAN:
-    particle-type: DOLPHIN
+  JUNGLE:
+    particle-type: HAPPY_VILLAGER
     fall-speed: 0.05
-    particle-count: 3
+    particle-count: 9
+    effect-type: SPIRAL
+    spawn-radius: 50.0
+    spawn-height: 35.0
+
+  BEACH:
+    particle-type: DRIPPING_WATER
+    fall-speed: 0.06
+    particle-count: 6
     effect-type: WAVE
     spawn-radius: 60.0
     spawn-height: 25.0
 
-  DEEP_OCEAN:
-    particle-type: NAUTILUS
+  OCEAN:
+    particle-type: DOLPHIN
     fall-speed: 0.04
-    particle-count: 2
-    effect-type: SPIRAL
+    particle-count: 5
+    effect-type: WAVE
     spawn-radius: 70.0
     spawn-height: 30.0
 
+  DEEP_OCEAN:
+    particle-type: NAUTILUS
+    fall-speed: 0.03
+    particle-count: 4
+    effect-type: SPIRAL
+    spawn-radius: 80.0
+    spawn-height: 35.0
+
   MUSHROOM_FIELDS:
     particle-type: CRIMSON_SPORE
-    fall-speed: 0.03
-    particle-count: 8
+    fall-speed: 0.025
+    particle-count: 10
     effect-type: FLOATING
-    spawn-radius: 30.0
-    spawn-height: 15.0
+    spawn-radius: 40.0
+    spawn-height: 20.0
 
   RIVER:
     particle-type: SPLASH
-    fall-speed: 0.08
-    particle-count: 5
+    fall-speed: 0.07
+    particle-count: 7
     effect-type: WAVE
-    spawn-radius: 40.0
-    spawn-height: 15.0
+    spawn-radius: 50.0
+    spawn-height: 20.0
 
   MOUNTAIN:
     particle-type: CLOUD
-    fall-speed: 0.02
-    particle-count: 4
+    fall-speed: 0.015
+    particle-count: 5
     effect-type: AURORA
-    spawn-radius: 90.0
-    spawn-height: 60.0
+    spawn-radius: 110.0
+    spawn-height: 70.0
 
   MEADOW:
     particle-type: CHERRY_LEAVES
-    fall-speed: 0.05
-    particle-count: 6
+    fall-speed: 0.04
+    particle-count: 8
     effect-type: SPIRAL
-    spawn-radius: 45.0
-    spawn-height: 25.0
+    spawn-radius: 55.0
+    spawn-height: 30.0
 
   FLOWER_FOREST:
     particle-type: HEART
-    fall-speed: 0.06
-    particle-count: 5
+    fall-speed: 0.05
+    particle-count: 7
     effect-type: FLOATING
-    spawn-radius: 35.0
-    spawn-height: 20.0
+    spawn-radius: 45.0
+    spawn-height: 25.0
+
+  CHERRY_GROVE:
+    particle-type: CHERRY_LEAVES
+    fall-speed: 0.035
+    particle-count: 12
+    effect-type: SPIRAL
+    spawn-radius: 60.0
+    spawn-height: 35.0
+
+  BAMBOO_JUNGLE:
+    particle-type: HAPPY_VILLAGER
+    fall-speed: 0.045
+    particle-count: 8
+    effect-type: WAVE
+    spawn-radius: 55.0
+    spawn-height: 40.0
+
+  FROZEN_PEAKS:
+    particle-type: SNOWFLAKE
+    fall-speed: 0.03
+    particle-count: 6
+    effect-type: AURORA
+    spawn-radius: 120.0
+    spawn-height: 80.0
+
+  LUSH_CAVES:
+    particle-type: GLOW_SQUID_INK
+    fall-speed: 0.02
+    particle-count: 10
+    effect-type: FLOATING
+    spawn-radius: 50.0
+    spawn-height: 30.0
+
+  WARPED_FOREST:
+    particle-type: WARPED_SPORE
+    fall-speed: 0.04
+    particle-count: 9
+    effect-type: SPIRAL
+    spawn-radius: 60.0
+    spawn-height: 40.0
+
+  CRIMSON_FOREST:
+    particle-type: CRIMSON_SPORE
+    fall-speed: 0.04
+    particle-count: 9
+    effect-type: FLOATING
+    spawn-radius: 60.0
+    spawn-height: 40.0
+
+  BASALT_DELTAS:
+    particle-type: LAVA
+    fall-speed: 0.2
+    particle-count: 3
+    effect-type: METEOR
+    spawn-radius: 90.0
+    spawn-height: 50.0
+
+  END_HIGHLANDS:
+    particle-type: DRAGON_BREATH
+    fall-speed: 0.03
+    particle-count: 6
+    effect-type: AURORA
+    spawn-radius: 100.0
+    spawn-height: 60.0
+
+  END_MIDLANDS:
+    particle-type: END_ROD
+    fall-speed: 0.05
+    particle-count: 8
+    effect-type: SPIRAL
+    spawn-radius: 80.0
+    spawn-height: 50.0
+
+  END_BARRENS:
+    particle-type: PORTAL
+    fall-speed: 0.02
+    particle-count: 10
+    effect-type: FLOATING
+    spawn-radius: 90.0
+    spawn-height: 55.0

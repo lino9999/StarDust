@@ -3,16 +3,80 @@ version: '1.0-BETA'
 main: com.Lino.starDust.StarDust
 api-version: '1.21'
 author: Lino
-description: Creates beautiful biome-specific particle effects during nighttime
+description: Creates stunning biome-specific particle effects during nighttime with advanced animations
+
 commands:
   stardust:
     description: Main StarDust command
-    usage: /<command> [status|toggle|reload]
-    aliases: [sd]
+    usage: /<command> [help|status|toggle|stats|info|biome|list|reload|admin]
+    aliases: [sd, dust, particles]
+
 permissions:
-  stardust.use:
-    description: Allows using StarDust
-    default: true
-  stardust.reload:
-    description: Allows reloading StarDust config
+  stardust.*:
+    description: All StarDust permissions
     default: op
+    children:
+      stardust.use: true
+      stardust.reload: true
+      stardust.list: true
+      stardust.stats.others: true
+      stardust.admin: true
+      stardust.autojoin: true
+      stardust.bypass.limit: true
+      stardust.priority: true
+
+  stardust.use:
+    description: Allows using StarDust effects
+    default: true
+
+  stardust.reload:
+    description: Allows reloading StarDust configuration
+    default: op
+
+  stardust.list:
+    description: Allows listing active players
+    default: op
+
+  stardust.stats.others:
+    description: Allows viewing other players' statistics
+    default: op
+
+  stardust.admin:
+    description: Allows using admin commands
+    default: op
+    children:
+      stardust.admin.add: true
+      stardust.admin.remove: true
+      stardust.admin.clear: true
+
+  stardust.admin.add:
+    description: Allows force-adding players to StarDust
+    default: op
+
+  stardust.admin.remove:
+    description: Allows force-removing players from StarDust
+    default: op
+
+  stardust.admin.clear:
+    description: Allows clearing all active players
+    default: op
+
+  stardust.autojoin:
+    description: Automatically joins StarDust on login
+    default: false
+
+  stardust.bypass.limit:
+    description: Bypass the maximum player limit
+    default: op
+
+  stardust.priority:
+    description: Priority queue access
+    default: false
+
+softdepend:
+  - PlaceholderAPI
+  - Vault
+
+load: POSTWORLD
+prefix: StarDust
+database: false
