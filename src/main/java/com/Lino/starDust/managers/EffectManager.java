@@ -60,7 +60,7 @@ public class EffectManager {
                         continue;
                     }
 
-                    String biomeName = player.getLocation().getBlock().getBiome().toString();
+                    String biomeName = player.getLocation().getBlock().getBiome().getKey().getKey().toUpperCase();
                     BiomeConfig config = plugin.getConfigManager().getBiomeConfig(biomeName);
 
                     ParticleEffect effect = effects.get(config.getEffectType());

@@ -54,7 +54,6 @@ public class StarDust extends JavaPlugin {
         getLogger().info("[✓] Particle effects started");
 
         checkForUpdates();
-        startMetrics();
         scheduleAutoSave();
 
         long loadTime = System.currentTimeMillis() - startTime;
@@ -98,7 +97,7 @@ public class StarDust extends JavaPlugin {
             public void run() {
                 try {
                     HttpURLConnection connection = (HttpURLConnection) new java.net.URI(
-                            "https://api.spigotmc.org/legacy/update.php?resource=YOUR_RESOURCE_ID"
+                            "https://api.spigotmc.org/legacy/update.php?resource=127279"
                     ).toURL().openConnection();
                     connection.setRequestMethod("GET");
 
@@ -115,7 +114,7 @@ public class StarDust extends JavaPlugin {
                             getLogger().warning("  A new version of StarDust is available!");
                             getLogger().warning("  Current: " + getDescription().getVersion());
                             getLogger().warning("  Latest: " + version);
-                            getLogger().warning("  Download at: [URL]");
+                            getLogger().warning("  Download at: https://www.spigotmc.org/resources/stardust.127279/");
                             getLogger().warning("=====================================");
                         });
                     } else {
@@ -128,20 +127,6 @@ public class StarDust extends JavaPlugin {
         }.runTaskAsynchronously(this);
     }
 
-    private void startMetrics() {
-        new BukkitRunnable() {
-            @Override
-            public void run() {
-                getLogger().info("Performance metrics:");
-                getLogger().info("- Active players: " + playerManager.getActivePlayerCount());
-                getLogger().info("- Queued players: " + playerManager.getQueuedPlayerCount());
-                getLogger().info("- Total particles: " + playerManager.getTotalParticlesSpawned());
-                getLogger().info("- Memory usage: " + getMemoryUsage() + "MB");
-                getLogger().info("- TPS: " + getServerTPS());
-            }
-        }.runTaskTimer(this, 6000L, 6000L);
-    }
-
     private void scheduleAutoSave() {
         new BukkitRunnable() {
             @Override
@@ -149,15 +134,6 @@ public class StarDust extends JavaPlugin {
                 saveConfig();
             }
         }.runTaskTimer(this, 12000L, 12000L);
-    }
-
-    private long getMemoryUsage() {
-        Runtime runtime = Runtime.getRuntime();
-        return (runtime.totalMemory() - runtime.freeMemory()) / 1048576;
-    }
-
-    private String getServerTPS() {
-        return "20.0";
     }
 
     public static StarDust getInstance() {

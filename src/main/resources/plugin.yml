@@ -1,5 +1,5 @@
 name: StarDust
-version: '1.2-BETA'
+version: '1.3-BETA'
 main: com.Lino.starDust.StarDust
 api-version: '1.21'
 author: Lino
@@ -8,7 +8,7 @@ description: Creates stunning biome-specific particle effects during nighttime w
 commands:
   stardust:
     description: Main StarDust command
-    usage: /<command> [help|status|toggle|stats|info|biome|list|reload|admin]
+    usage: /<command> [help|status|toggle|stats|info|biome|list|reload]
     aliases: [sd, dust, particles]
 
 permissions:
@@ -20,7 +20,6 @@ permissions:
       stardust.reload: true
       stardust.list: true
       stardust.stats.others: true
-      stardust.admin: true
       stardust.autojoin: true
       stardust.bypass.limit: true
       stardust.priority: true
@@ -41,26 +40,6 @@ permissions:
     description: Allows viewing other players' statistics
     default: op
 
-  stardust.admin:
-    description: Allows using admin commands
-    default: op
-    children:
-      stardust.admin.add: true
-      stardust.admin.remove: true
-      stardust.admin.clear: true
-
-  stardust.admin.add:
-    description: Allows force-adding players to StarDust
-    default: op
-
-  stardust.admin.remove:
-    description: Allows force-removing players from StarDust
-    default: op
-
-  stardust.admin.clear:
-    description: Allows clearing all active players
-    default: op
-
   stardust.autojoin:
     description: Automatically joins StarDust on login
     default: false
@@ -72,10 +51,6 @@ permissions:
   stardust.priority:
     description: Priority queue access
     default: false
-
-softdepend:
-  - PlaceholderAPI
-  - Vault
 
 load: POSTWORLD
 prefix: StarDust

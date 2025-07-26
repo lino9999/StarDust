@@ -121,8 +121,8 @@ public class StarDustCommand implements CommandExecutor, TabCompleter {
 
         if (isActive) {
             sender.sendMessage("§7Status: §a§lACTIVE");
-            sender.sendMessage("§7Current biome: §f" + player.getLocation().getBlock().getBiome().toString());
-            BiomeConfig config = plugin.getConfigManager().getBiomeConfig(player.getLocation().getBlock().getBiome().toString());
+            sender.sendMessage("§7Current biome: §f" + player.getLocation().getBlock().getBiome().getKey().getKey().toUpperCase());
+            BiomeConfig config = plugin.getConfigManager().getBiomeConfig(player.getLocation().getBlock().getBiome().getKey().getKey().toUpperCase());
             sender.sendMessage("§7Effect type: §f" + config.getEffectType());
             sender.sendMessage("§7Particle type: §f" + config.getParticleType());
         } else if (queuePos > 0) {
@@ -224,7 +224,7 @@ public class StarDustCommand implements CommandExecutor, TabCompleter {
         }
 
         Player player = (Player) sender;
-        String biomeName = player.getLocation().getBlock().getBiome().toString();
+        String biomeName = player.getLocation().getBlock().getBiome().getKey().getKey().toUpperCase();
         BiomeConfig config = plugin.getConfigManager().getBiomeConfig(biomeName);
 
         sender.sendMessage("");
@@ -257,7 +257,7 @@ public class StarDustCommand implements CommandExecutor, TabCompleter {
             for (int i = 0; i < activePlayers.size(); i++) {
                 Player p = activePlayers.get(i);
                 sender.sendMessage("§b" + (i + 1) + ". §f" + p.getName() +
-                        " §7(" + p.getLocation().getBlock().getBiome().toString() + ")");
+                        " §7(" + p.getLocation().getBlock().getBiome().getKey().getKey().toUpperCase() + ")");
             }
         }
 
