@@ -158,7 +158,6 @@ public class PlayerManager {
     }
 
     private void playActivationEffect(Player player) {
-        // Simple activation effect without being too intrusive
         player.getWorld().spawnParticle(
                 org.bukkit.Particle.END_ROD,
                 player.getLocation().add(0, 2, 0),
@@ -166,11 +165,6 @@ public class PlayerManager {
                 0.5, 0.5, 0.5,
                 0.1
         );
-    }
-
-    private String estimateWaitTime(int position) {
-        int estimatedSeconds = position * 30;
-        return formatTime(estimatedSeconds * 1000L);
     }
 
     private String formatTime(long milliseconds) {

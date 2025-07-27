@@ -3,6 +3,7 @@ package com.Lino.starDust.commands;
 import com.Lino.starDust.StarDust;
 import com.Lino.starDust.config.BiomeConfig;
 import com.Lino.starDust.managers.PlayerManager;
+import com.Lino.starDust.utils.BiomeUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -121,8 +122,8 @@ public class StarDustCommand implements CommandExecutor, TabCompleter {
 
         if (isActive) {
             sender.sendMessage("§7Status: §a§lACTIVE");
-            sender.sendMessage("§7Current biome: §f" + player.getLocation().getBlock().getBiome().getKey().getKey().toUpperCase());
-            BiomeConfig config = plugin.getConfigManager().getBiomeConfig(player.getLocation().getBlock().getBiome().getKey().getKey().toUpperCase());
+            sender.sendMessage("§7Current biome: §f" + BiomeUtils.getBiomeName(player.getLocation()));
+            BiomeConfig config = plugin.getConfigManager().getBiomeConfig(BiomeUtils.getBiomeName(player.getLocation()));
             sender.sendMessage("§7Effect type: §f" + config.getEffectType());
             sender.sendMessage("§7Particle type: §f" + config.getParticleType());
         } else if (queuePos > 0) {
@@ -224,7 +225,7 @@ public class StarDustCommand implements CommandExecutor, TabCompleter {
         }
 
         Player player = (Player) sender;
-        String biomeName = player.getLocation().getBlock().getBiome().getKey().getKey().toUpperCase();
+        String biomeName = BiomeUtils.getBiomeName(player.getLocation());
         BiomeConfig config = plugin.getConfigManager().getBiomeConfig(biomeName);
 
         sender.sendMessage("");
@@ -257,7 +258,7 @@ public class StarDustCommand implements CommandExecutor, TabCompleter {
             for (int i = 0; i < activePlayers.size(); i++) {
                 Player p = activePlayers.get(i);
                 sender.sendMessage("§b" + (i + 1) + ". §f" + p.getName() +
-                        " §7(" + p.getLocation().getBlock().getBiome().getKey().getKey().toUpperCase() + ")");
+                        " §7(" + BiomeUtils.getBiomeName(p.getLocation()) + ")");
             }
         }
 

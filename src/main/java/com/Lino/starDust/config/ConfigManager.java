@@ -158,7 +158,7 @@ public class ConfigManager {
     }
 
     public BiomeConfig getBiomeConfig(String biome) {
-        BiomeConfig config = biomeConfigs.get(biome.toUpperCase());
+        BiomeConfig config = biomeConfigs.get(biome);
         if (config == null) {
             config = biomeConfigs.get(simplifyBiomeName(biome));
         }
@@ -177,7 +177,7 @@ public class ConfigManager {
         if (biome.contains("BEACH")) return "BEACH";
         if (biome.contains("NETHER")) return "CRIMSON_FOREST";
         if (biome.contains("END")) return "END_HIGHLANDS";
-        return biome.toUpperCase();
+        return biome;
     }
 
     private BiomeConfig getDefaultBiomeConfig() {

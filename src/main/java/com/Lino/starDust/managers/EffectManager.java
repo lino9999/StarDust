@@ -3,6 +3,7 @@ package com.Lino.starDust.managers;
 import com.Lino.starDust.StarDust;
 import com.Lino.starDust.config.BiomeConfig;
 import com.Lino.starDust.effects.*;
+import com.Lino.starDust.utils.BiomeUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.World;
@@ -60,7 +61,7 @@ public class EffectManager {
                         continue;
                     }
 
-                    String biomeName = player.getLocation().getBlock().getBiome().getKey().getKey().toUpperCase();
+                    String biomeName = BiomeUtils.getBiomeName(player.getLocation());
                     BiomeConfig config = plugin.getConfigManager().getBiomeConfig(biomeName);
 
                     ParticleEffect effect = effects.get(config.getEffectType());

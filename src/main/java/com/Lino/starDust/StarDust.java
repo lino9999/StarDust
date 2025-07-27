@@ -53,7 +53,6 @@ public class StarDust extends JavaPlugin {
         effectManager.startEffects();
         getLogger().info("[✓] Particle effects started");
 
-        checkForUpdates();
         scheduleAutoSave();
 
         long loadTime = System.currentTimeMillis() - startTime;
@@ -87,45 +86,6 @@ public class StarDust extends JavaPlugin {
         getLogger().info("");
     }
 
-    private void checkForUpdates() {
-        if (!getConfig().getBoolean("check-for-updates", true)) {
-            return;
-        }
-
-        new BukkitRunnable() {
-            @Override
-            public void run() {
-                try {
-                    HttpURLConnection connection = (HttpURLConnection) new java.net.URI(
-                            "https://api.spigotmc.org/legacy/update.php?resource=127279"
-                    ).toURL().openConnection();
-                    connection.setRequestMethod("GET");
-
-                    String version = new BufferedReader(new InputStreamReader(
-                            connection.getInputStream()
-                    )).readLine();
-
-                    if (!version.equals(getDescription().getVersion())) {
-                        updateAvailable = true;
-                        latestVersion = version;
-
-                        Bukkit.getScheduler().runTask(StarDust.this, () -> {
-                            getLogger().warning("=====================================");
-                            getLogger().warning("  A new version of StarDust is available!");
-                            getLogger().warning("  Current: " + getDescription().getVersion());
-                            getLogger().warning("  Latest: " + version);
-                            getLogger().warning("  Download at: https://www.spigotmc.org/resources/stardust.127279/");
-                            getLogger().warning("=====================================");
-                        });
-                    } else {
-                        getLogger().info("You are running the latest version!");
-                    }
-                } catch (Exception e) {
-                    getLogger().info("Could not check for updates: " + e.getMessage());
-                }
-            }
-        }.runTaskAsynchronously(this);
-    }
 
     private void scheduleAutoSave() {
         new BukkitRunnable() {
